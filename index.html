@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-    <link rel="stylesheet" type="text/css" href="./CSS/TableStyle.default.css">
+    <link id="css" rel="stylesheet" type="text/css" href="./CSS/TableStyle.default.css">
     <script type="text/javascript" src="./Modules/SudokuDisplay.js"></script>
 
     <script type="text/javascript" src="./Extensions/StringExtension.js"></script>
     <script type="text/javascript" src="./Datas/SudokuSample.js"></script>
 
-    <script type="text/javascript" src="./Modules/Checker/Main.js"></script>
-    <script type="text/javascript" src="./Modules/Checker/GetList.js"></script>
-    <script type="text/javascript" src="./Modules/Checker/CheckList.js"></script>
-
     <table class='sudoku' id='sudoku_table1'/>
     <script>
         document.getElementById('sudoku_table1').innerHTML=SudokuDisplay.table(SudokuSample.done9x9)
+        document.getElementById('css').setAttribute('href','./CSS/TableStyle.done.css')
     </script> 
 </html>
