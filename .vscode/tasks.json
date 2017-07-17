@@ -4,5 +4,8 @@
     "windows": {
         "command": "explorer.exe"
     },
-    "args": ["sudoku.html"]
+     "osx": {
+        "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    },
+    "args": ["index.html"]
 }
