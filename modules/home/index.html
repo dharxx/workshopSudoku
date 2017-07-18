@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <!--css style-->
+    <link id="css" rel="stylesheet" type="text/css" href="./css/TableStyle.default.css">
+
+    <!--additions-->
+    <script type="text/javascript" src="../../extensions/StringExtension.js"></script>
+    <script type="text/javascript" src="../../datas/SudokuSample.js"></script>
+    
+    <!--modules-->
+    <script type="text/javascript" src="../home/SudokuDisplay.js"></script>
+
+    <!--body-->
+    <table class='sudoku' id='sudoku_table1'/>
+
+    <!--js script-->
+    <script>
+        document.getElementById('sudoku_table1').innerHTML=SudokuDisplay.table(SudokuSample.done9x9)
+        document.getElementById('css').setAttribute('href','./css/TableStyle.done.css')
+    </script> 
+</html>
