@@ -4,11 +4,18 @@
     <link id="css" rel="stylesheet" type="text/css" href="./Tester.css">
 
     <div id="reports"/>
-    
+
     <!--testing module-->
     <script type="text/javascript" src="../State.js"></script>
 
     <!--tester helper-->
     <script type="text/javascript" src="./Testcase.js"></script>
-    <script type="text/javascript" src="./Tester.js"></script>
+    <script type="text/javascript" src="./ReportTester.js"></script>
+    <script>
+        for (testName in Testcase){
+            let report = new ReportTester(testName,Testcase[testName])
+            Testcase.hasOwnProperty(testName) && 
+            document.getElementById("reports").appendChild(report.reportObject())
+        }
+    </script>
 </html>

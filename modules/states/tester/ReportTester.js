@@ -1,4 +1,4 @@
-class ReportTest {
+class ReportTester {
     constructor(testName,test) {
         this.test = test
         this.testName = testName
@@ -31,12 +31,5 @@ class ReportTest {
     }
     reportTextTestSuccess(name){
         return [document.createTextNode(`'${this.testName}' is succeed`)]
-    }
-}
-
-for (testName in Testcase){
-    if (Testcase.hasOwnProperty(testName)) {
-        // document.getElementById("reports").appendChild(reportObject(testName,Testcase[testName]))
-        document.getElementById("reports").appendChild(new ReportTest(testName,Testcase[testName]).reportObject())
     }
 }
