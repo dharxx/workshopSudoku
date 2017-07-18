@@ -1,30 +1,42 @@
-let reportTextTestFail = (name,input,output,expected)=> {
+class ReportTest {
+    constructor(testName,test) {
+        this.test = test
+        this.testName = testName
+        this.testResult = test.test()
+        this.isSuccess = JSON.stringify(test.expected)==JSON.stringify(this.testResult)
+    }
+    reportObject() {
+        var report = document.createElement("div")
+        report.id = this.testName
+        report.classList.add(this.isSuccess ? "success" : "fail")
+        this.addTextNodes(report)
+        return report
+    }
+    addTextNodes(report) {
+        (this.isSuccess
+        ? this.reportTextTestSuccess(this.testName) 
+        : this.reportTextTestFail())
+        .forEach(node=>report.appendChild(node))
+    }
+    reportTextTestFail() {
     return [
-        document.createTextNode(`'${name}' is failure.`),document.createElement("br"),
-        document.createTextNode(`input:${JSON.stringify(input)}`),document.createElement("br"),
-        document.createTextNode(`output:${JSON.stringify(output)}`),document.createElement("br"),
-        document.createTextNode(`expected:${JSON.stringify(expected)}`)
+        document.createTextNode(`'${this.testName}' is failure.`),
+        document.createElement("br"),
+        document.createTextNode(`input:${JSON.stringify(this.test.input)}`),
+        document.createElement("br"),
+        document.createTextNode(`output:${JSON.stringify(this.testResult)}`),
+        document.createElement("br"),
+        document.createTextNode(`expected:${JSON.stringify(this.test.expected)}`)
         ]
+    }
+    reportTextTestSuccess(name){
+        return [document.createTextNode(`'${this.testName}' is succeed`)]
+    }
 }
-let reportTextTestSuccess = (name)=>[document.createTextNode(`'${name}' is succeed`)]
-
-let isEqual = (a,b)=>JSON.stringify(a)==JSON.stringify(b)
 
 for (testName in Testcase){
     if (Testcase.hasOwnProperty(testName)) {
-        let test = Testcase[testName]
-
-        var report = document.createElement("div")
-        var testResult = test.test()
-        var isSuccess = isEqual(testResult,test.expected)
-        report.id = testName
-        report.classList.add(isSuccess ? "success" : "fail")
-        var nodes = isSuccess
-        ? reportTextTestSuccess(testName) 
-        : reportTextTestFail(testName,test.input,testResult,test.expected)
-        nodes.forEach(node=>report.appendChild(node))
-
-        var element = document.getElementById("reports")
-        element.appendChild(report)
+        // document.getElementById("reports").appendChild(reportObject(testName,Testcase[testName]))
+        document.getElementById("reports").appendChild(new ReportTest(testName,Testcase[testName]).reportObject())
     }
 }
