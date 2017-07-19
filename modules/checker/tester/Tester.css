@@ -1,0 +1,14 @@
+div {
+    font-family: "Comic Sans MS", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+.fail {
+    color: #E00
+}
+.success {
+    color: #5D5
+}
+body {
+    background-color: #AAA
+}

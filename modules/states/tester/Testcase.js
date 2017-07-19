@@ -1,34 +1,26 @@
 const Testcase = {
-    test1: 
+    State_mergeStates_test_done: 
     {
-        input:0,
-        test: (input)=>{
-            return 1
-        },
-        expected:1
+        input:[State.done,State.done,State.done],
+        test: (input)=>State.mergeStates(input),
+        expected:State.done
     },
-    test2: 
+    State_mergeStates_test_default: 
     {
-        input:[1,2,3,4],
-        test: (input)=>{
-            return 2
-        },
-        expected:1
+        input:[State.done,State.default,State.done],
+        test: (input)=>State.mergeStates(input),
+        expected:State.default
     },
-    test3: 
+    State_mergeStates_test_wrong: 
     {
-        input:[1,2,3,4],
-        test: (input)=>{
-            return ["1",1]
-        },
-        expected:["1",1]
+        input:[State.done,State.default,State.wrong],
+        test: (input)=>State.mergeStates(input),
+        expected:State.wrong
     },
-    test4: 
+    State_mergeStates_test_LONG: 
     {
-        input:[1,2],
-        test: (input)=>{
-            return {a:"a",b:"b"}
-        },
-        expected:{b:"b",a:"a"}
+        input:[State.done,State.done,State.done,State.done,State.done,State.done,State.done,State.done,State.wrong],
+        test: (input)=>State.mergeStates(input),
+        expected:State.wrong
     },
 }
