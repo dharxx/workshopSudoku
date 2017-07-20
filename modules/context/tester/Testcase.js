@@ -1,44 +1,49 @@
-//mock State
-const State = {
-    //enum
-    sample:"sample",
-    mergeStates: (states)=>{
-        return `mergeStates of ${states}`
-    }
-}
-//mock class
-class Checker {
-    constructor(set) {}
-    checkNoDuplicate() {
-        return 0
-    }
-    checkNoEmpty() {
-        return 0
-    }
-}
-//mock class
-class Getter {
-    constructor(context) {}
-    getRow(index) {
-        return 0
-    }
-    getColumn(index) {
-        return 0
-    }
-    getSmallTable(index) {
-        return 0
-    }
-}
+const sample = [[[["a1","b1"],["c1","d1"]],[["a2","b2"],["c2","d2"]]],
+            [[["a3","b3"],["c3","d3"]],[["a4","b4"],["c4","d4"]]]]
 const Testcase = {
+    Context_constructor: 
+    {
+        input: sample,
+        test: (input)=>{
+            var context = new Context(input)
+            return {data:context.data,base:context.base,getter:context.getter}
+        },
+        expected:{data:sample,base:2,getter:new Getter(2)}
+    },
     Context_checkState: 
     {
-        input: 0,
+        input: sample,
         test: (input)=>{
-            var expectedResult = {}
-            var context = Context([],)
+            var context = new Context(input)
+            return context.checkState()
         },
-        expected:{
-
-        }
+        expected:State.done
+    },
+    Context_checkAllRow: 
+    {
+        input: sample,
+        test: (input)=>{
+            var context = new Context(input)
+            return context.checkAllRow()
+        },
+        expected:State.done
+    },
+     Context_checkAllSmallColumn: 
+    {
+        input: sample,
+        test: (input)=>{
+            var context = new Context(input)
+            return context.checkAllColumn()
+        },
+        expected:State.done
+    },
+    Context_checkAllSmallTable: 
+    {
+        input: sample,
+        test: (input)=>{
+            var context = new Context(input)
+            return context.checkAllSmallTable()
+        },
+        expected:State.done
     }
 }

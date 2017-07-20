@@ -23,4 +23,22 @@ const Testcase = {
         test: (input)=>State.mergeStates(input),
         expected:State.wrong
     },
+    State_createState_test_done: 
+    {
+        input:{noDuplicate : true, noEmpty : true},
+        test: (input)=>State.createState(input.noDuplicate,input.noEmpty),
+        expected:State.done
+    },
+    State_createState_test_default: 
+    {
+        input:{noDuplicate : true, noEmpty : false},
+        test: (input)=>State.createState(input.noDuplicate,input.noEmpty),
+        expected:State.default
+    },
+    State_createState_test_wrong: 
+    {
+        input:{noDuplicate : false, noEmpty : true},
+        test: (input)=>State.createState(input.noDuplicate,input.noEmpty),
+        expected:State.wrong
+    }
 }

@@ -5,5 +5,8 @@ const State = {
     done:"done",
     mergeStates: (states)=>{
         return 0
+    },
+    createState: (noDuplicate,noEmpty)=>{
+        return 0
     }
 }

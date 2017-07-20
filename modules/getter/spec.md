@@ -36,7 +36,9 @@
 
 - **Function**
 
-    1. this.getRow ( index ) => Array of String
+    1. this.getRow ( index ) => Array of String 
+        * Get row of context at index
+
         1. *index* is Integer
         2. 0<= *index* < *this.context.base^2*
         3. Get *[a,b] array* from *NumberHelpers.baseNumberArray( index,this.context.base )*
@@ -61,6 +63,7 @@
         ~~~~
 
     2. this.getColumn ( index ) => Array of String
+        * Get column of context at index
         * Same as *1. this.getRow ( index ) => Array of String*
         * Except in *1.5.2* change to *A[ i ]* = *this.context.data[c][a][d][b]*
         ~~~~
@@ -78,6 +81,7 @@
         ouput   :   ["a3","b3","a4","b4"]
         ~~~~
     3. this.getSmallTable ( index ) => Array of String
+        * Get sub-table of context at index
         * Same as *1. this.getRow ( index ) => Array of String*
         * Except in *1.5.2* change to *A[ i ]* = *this.context.data[a][b][c][d]*
         ~~~~
@@ -94,7 +98,7 @@
                     ]
         ouput   :   ["a3","b3","c3","d3"]
         ~~~~
-- **Helpers**
+- **Helpers Interface**
     1. NumberHelpers.baseNumberArray ( number, base ) => Array of Integer
         * 2 <= *base* <= 16
         * 0 <= *number* < *base*^2

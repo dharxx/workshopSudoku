@@ -27,4 +27,24 @@
 
         output  : State.default
         ~~~~
+    2. State.createState ( noDuplicate : Bool, noEmpty : Bool) => State.enum
+        * Make *State.enum*
+        * If not noDuplicate return State.wrong
+        ~~~~
+        input   : noDuplicate : false, noEmpty : true
+
+        output  : State.wrong
+        ~~~~
+        * Else if not noEmpty return State.default
+        ~~~~
+        input   : noDuplicate : true, noEmpty : false
+
+        output  : State.default
+        ~~~~
+        * Else return State.done
+        ~~~~
+        input   : noDuplicate : true, noEmpty : true
+
+        output  : State.done
+        ~~~~
 ---
