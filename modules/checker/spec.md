@@ -2,6 +2,7 @@
 - **Variable**
     
     1. this.set : Array of String
+        * From constructor
         * 0 < Array size of *set* <= 256
         * Length of string in *set* < 16
         * Return *true* if there is no dulpicate string in *set* 
