@@ -6,7 +6,7 @@
         * base : Integer
             * 1 <= *base* <= 4
         * data : 4 dimensions Array of string 
-            * Length of string in *set* < 16
+            * Length of string < 16
             * All dimensions of *data*'s size  is *base*
             ~~~~
                 sample  :  
@@ -78,7 +78,7 @@
                         data[1][1][0][0],
                         data[1][1][1][0],
                     ]
-        ouput   :   ["a3","b3","a4","b4"]
+        ouput   :   ["a2","c2","a4","c4"]
         ~~~~
     3. this.getSmallTable ( index ) => Array of String
         * Get sub-table of context at index

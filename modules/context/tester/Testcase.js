@@ -28,7 +28,7 @@ const Testcase = {
         },
         expected:State.done
     },
-     Context_checkAllSmallColumn: 
+     Context_checkAllColumn: 
     {
         input: sample,
         test: (input)=>{

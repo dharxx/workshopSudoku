@@ -3,8 +3,8 @@ const NumberHelpers = {
     index:0,
     output_set:[],
     baseNumberArray: (number, base)=>{
-        let output = NumberHelpers.output_set[index]
-        index = index+1
+        let output = NumberHelpers.output_set[NumberHelpers.index]
+        NumberHelpers.index = NumberHelpers.index+1
         return output
     }
 }
@@ -55,9 +55,9 @@ const Testcase = {
             ]
             return mockGetter.getRow(input.index)
         },
-        expected:["a1","b1","a1","b1"]
+        expected:["a1","b1","a2","b2"]
     },
-    Getter_getColumnRow_test_1: 
+    Getter_getColumn_test_1: 
     {
         input: {index:2,context:sample},
         test: (input)=>{
@@ -70,11 +70,11 @@ const Testcase = {
                 [1,0],// 2
                 [1,1]// 3
             ]
-            return mockGetter.getColumnRow(input.index)
+            return mockGetter.getColumn(input.index)
         },
-        expected:["a2","b2","a4","b4"]
+        expected:["a2","c2","a4","c4"]
     },
-    Getter_getColumnRow_test_2: 
+    Getter_getColumn_test_2: 
     {
         input: {index:0,context:sample},
         test: (input)=>{
@@ -87,7 +87,7 @@ const Testcase = {
                 [1,0],// 2
                 [1,1]// 3
             ]
-            return mockGetter.getRow(input.index)
+            return mockGetter.getColumn(input.index)
         },
         expected:["a1","c1","a3","c3"]
     },

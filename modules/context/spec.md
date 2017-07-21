@@ -2,7 +2,7 @@
 - **Variable**    
     1. this.data : 4 dimensions Array of string 
         * From constructor
-        * Length of string in *set* < 16
+        * Length of string < 16
         * All dimensions of *data*'s size  is *this.base*
         ~~~~
             sample  :  

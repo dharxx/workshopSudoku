@@ -6,6 +6,11 @@
     <!--additions-->
     <script type="text/javascript" src="../../extensions/StringExtension.js"></script>
     <script type="text/javascript" src="../../datas/SudokuSample.js"></script>
+    <script type="text/javascript" src="../checker/Checker.js"></script>
+    <script type="text/javascript" src="../states/State.js"></script>
+    <script type="text/javascript" src="../helpers/NumberHelpers.js"></script>
+    <script type="text/javascript" src="../context/Context.js"></script>
+    <script type="text/javascript" src="../getter/Getter.js"></script>
     
     <!--modules-->
     <script type="text/javascript" src="../home/SudokuDisplay.js"></script>
@@ -15,7 +20,31 @@
 
     <!--js script-->
     <script>
-        document.getElementById('sudoku_table1').innerHTML=SudokuDisplay.table(SudokuSample.done9x9)
-        document.getElementById('css').setAttribute('href','./css/TableStyle.done.css')
-    </script> 
+
+
+        let setSrcCSS = (path)=>document.getElementById('css').setAttribute('href',path)
+
+        let query = document.location.href.split("?")
+        let sample = SudokuSample.done4x4
+        if (query.length > 1) {
+            sample = SudokuSample[query[1].parseQuery().s]
+        }
+        let context = new Context(sample)
+        document.getElementById('sudoku_table1').innerHTML=SudokuDisplay.table(sample)
+        let result = context.checkState()
+        console.log(result)
+        switch (result) {
+            case State.done:
+            setSrcCSS('./css/TableStyle.done.css')
+                break;
+            case State.wrong:
+            setSrcCSS('./css/TableStyle.wrong.css')
+                break;
+            case State.default:
+            setSrcCSS('./css/TableStyle.default.css')
+                break;
+            default:
+                break;
+        }
+    </script>
 </html>

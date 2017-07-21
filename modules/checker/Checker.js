@@ -1,9 +1,27 @@
 class Checker {
-    constructor(set) {}
+    constructor(set) {
+        this.set = set
+    }
     checkNoDuplicate() {
-        return 0
+        let result
+        let filter
+        let array = this.set
+        for (let value of array) {
+            filter = array.filter((elem) => {
+                return elem === value
+            })
+            if (filter.length > 1 && filter[0] !== '') {
+                result = false
+                break
+            } else {
+                result = true
+            }
+        }
+        return result
     }
     checkNoEmpty() {
-        return 0
+        return this.set.filter((string) => {
+            return string.length === 0
+        }).length === 0
     }
 }
